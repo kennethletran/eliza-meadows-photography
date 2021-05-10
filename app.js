@@ -46,3 +46,18 @@ function handleMenuClick() {
   }
 }
 menuButton.addEventListener('click', handleMenuClick);
+
+
+// Font Weight Hover
+const firstSpan = document.querySelector('.headline--first');
+const secondSpan = document.querySelector('.headline--second');
+const heroImg = document.querySelector('.hero__img');
+
+heroImg.addEventListener('mouseenter', function() {
+  firstSpan.classList.add('headline--anim');
+  secondSpan.classList.add('headline--anim');
+});
+heroImg.addEventListener('mouseleave', function() {
+  firstSpan.classList.remove('headline--anim');
+  secondSpan.classList.remove('headline--anim');
+})

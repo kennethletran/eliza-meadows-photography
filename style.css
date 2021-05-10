@@ -46,7 +46,6 @@ span::selection {
   color: var(--bg-primary);
   background-color: var(--accent-color);
 }
-
 /* Custom Scrollbar */
 .progress-container {
   width: 100%;
@@ -116,19 +115,26 @@ span::selection {
   clip-path: path("M 0 100 L 0,0 A 5,7 0,0,1 450,850 L 0 680 z");
 }
 .headline {
-  font-family: "Playfair Display SC", serif;
+  font-family: "Playfair Display", serif;
   color: var(--accent-color);
   letter-spacing: 0.2rem;
+  font-weight: 400;
+  text-transform: uppercase;
 }
 .headline--first {
   position: absolute;
   top: 42%;
   left: 4%;
+  transition: font-weight 400ms ease-in-out;
 }
 .headline--second {
   position: absolute;
   top: 58%;
   right: 6%;
+  transition: font-weight 400ms ease-in-out;
+}
+.headline--anim {
+  font-weight: 800;
 }
 
 /* Menu */
@@ -294,5 +300,13 @@ span::selection {
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+/* Media Queries */
+/* General Phone Screen Sizes */
+@media only screen and (min-width: 300px) and (max-width: 820px) {
+  .hide-on-mobile {
+    display: none;
   }
 }
