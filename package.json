@@ -1,0 +1,24 @@
+{
+  "name": "artisan-photographer",
+  "version": "1.0.0",
+  "main": "app.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kennethletran/sample-photography-site.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kennethletran/sample-photography-site/issues"
+  },
+  "homepage": "https://github.com/kennethletran/sample-photography-site#readme",
+  "description": "",
+  "dependencies": {
+    "locomotive-scroll": "^4.1.1",
+    "parcel": "*"
+  }
+}
