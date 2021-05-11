@@ -9,7 +9,7 @@
   --bg-primary: hsl(30, 63%, 90%);
   --bg-black: hsl(0, 0%, 0%);
   --bg-white: hsl(0, 0%, 100%);
-  --accent-color: #aadbf7;
+  --accent-color: hsl(202, 83%, 82%);
 
   font-size: 10px;
   cursor: none;
@@ -46,6 +46,7 @@ span::selection {
   color: var(--bg-primary);
   background-color: var(--accent-color);
 }
+
 /* Custom Scrollbar */
 .progress-container {
   width: 100%;
@@ -71,16 +72,15 @@ span::selection {
   z-index: 10000;
   pointer-events: none;
   border-radius: 50%;
-  /* transform: translate(-50%, -50%); */
 }
 .outer-cursor {
+  /* consider taking this cursor out */
   width: 5rem;
   height: 5rem;
   border: 2px solid var(--accent-color);
-  /* border: 2px solid black; */
   background: transparent;
   transform: translate(-50%, -50%);
-  transition: all 50ms ease-in-out;
+  /* transition: all 50ms ease-in-out; */
 }
 .inner-cursor {
   width: 1rem;
@@ -98,7 +98,7 @@ span::selection {
   justify-content: center;
 }
 .img__container {
-  margin-top: 20rem;
+  margin-top: 15rem;
   clip-path: path("M 0 100 L 0,150 A 5,7 0,0,1 450,850 L 0 680 z");
   transition: clip-path 1000ms;
 }
@@ -118,23 +118,29 @@ span::selection {
   font-family: "Playfair Display", serif;
   color: var(--accent-color);
   letter-spacing: 0.2rem;
-  font-weight: 400;
+  font-weight: 100;
   text-transform: uppercase;
 }
 .headline--first {
   position: absolute;
-  top: 42%;
-  left: 4%;
-  transition: font-weight 400ms ease-in-out;
+  top: 52%;
+  left: 20%;
+  transition: font-weight 575ms, transform 750ms ease-in-out;
 }
 .headline--second {
   position: absolute;
-  top: 58%;
+  top: 62%;
   right: 6%;
-  transition: font-weight 400ms ease-in-out;
+  transition: font-weight 575ms, transform 600ms ease-in-out;
 }
 .headline--anim {
-  font-weight: 800;
+  font-weight: 900;
+}
+.span--first--slide {
+  transform: translateX(6rem);
+}
+.span--second--slide {
+  transform: translateX(-10rem);
 }
 
 /* Menu */
@@ -159,7 +165,7 @@ span::selection {
 .menu__button span {
   display: inline-block;
   width: 2.5rem;
-  height: 0.1rem;
+  height: 0.2rem;
   background-color: var(--text-color);
   z-index: 1000;
   transition: background 300ms ease-in-out;
@@ -204,6 +210,7 @@ span::selection {
   background-color: var(--bg-black);
   clip-path: circle(20px at 5.5rem 5.5rem);
   transition: clip-path ease-in-out 750ms;
+  z-index: 100;
 }
 .menu__container.menu--expand {
   clip-path: circle(100%);
@@ -228,8 +235,8 @@ span::selection {
   margin-left: 25rem;
 }
 .menu__link {
-  font-family: "Playfair Display SC", serif;
-  font-weight: 500;
+  font-family: "Playfair Display", serif;
+  font-weight: 900;
   font-style: italic;
   letter-spacing: 0.35rem;
   font-size: 7rem;
@@ -241,29 +248,57 @@ span::selection {
 }
 /* Body Content */
 .body__container {
-  display: grid;
-  grid-template-columns: 1fr 50px;
-  grid-template-rows: auto 1fr auto;
   margin-top: 6rem;
+  padding: 0 0 4rem 3rem;
   gap: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 50px;
+  grid-template-rows: repeat(5, 25%);
+  grid-template-areas:
+    "title ... vert"
+    "info gall vert"
+    "... gall vert"
+    "... gall vert"
+    "spinning gall vert";
 }
-/* .sub__headline {
-  
-  max-width: 35ch;
-} */
+.sub__headline {
+  grid-area: title;
+  max-width: 27ch;
+  align-self: end;
+  position: relative;
+}
+.sub__headline::before {
+  content: "";
+  position: absolute;
+  height: 0.2rem;
+  width: 5rem;
+  top: -2rem;
+  left: 0;
+  background-color: var(--accent-color);
+}
+.info {
+  grid-area: info;
+  font-size: 1.5rem;
+  font-family: "Rosario", sans-serif;
+  max-width: 44ch;
+  hyphens: auto;
+  padding-top: 2rem;
+}
 .vertical__container {
-  grid-column: 2;
+  grid-area: vert;
   grid-row: 1 / -1;
   display: flex;
-  writing-mode: vertical-rl;
+  writing-mode: vertical-lr;
   height: 100%;
-  gap: 5rem;
+  gap: 35rem;
   justify-content: space-around;
+  transform: scale(-1);
 }
 .vertical__text {
   font-size: 2rem;
-  font-family: "Playfair Display SC", serif;
-  font-weight: 800;
+  font-family: "Playfair Display", serif;
+  font-weight: 400;
+  font-style: italic;
 }
 .vertical__text.text--1 {
   top: 40%;
@@ -271,18 +306,34 @@ span::selection {
 }
 /* Gallery */
 .gall__container {
-  grid-row: 2;
+  grid-area: gall;
+  display: flex;
+  flex-direction: column;
 }
 .gall__img {
   width: 250px;
   height: 350px;
   object-fit: cover;
+  /* align-self: center; */
+}
+.gall__caption {
+  font-family: "Playfair Display", serif;
+  font-size: 8rem;
+  font-weight: 600;
+  color: var(--accent-color);
+  letter-spacing: -0.35rem;
+  font-style: italic;
+  align-self: center;
+  position: relative;
+  top: -21%;
+  left: -5%;
 }
 
 /* Spinning Text */
 .spinning__container {
-  grid-column: 1;
-  grid-row: -1;
+  grid-area: spinning;
+  align-self: center;
+  padding-top: 10rem;
 }
 .spinning--text {
   animation: rotating-text 9500ms linear infinite forwards;

@@ -51,13 +51,17 @@ menuButton.addEventListener('click', handleMenuClick);
 // Font Weight Hover
 const firstSpan = document.querySelector('.headline--first');
 const secondSpan = document.querySelector('.headline--second');
+const headline = document.querySelector('.headline');
 const heroImg = document.querySelector('.hero__img');
 
 heroImg.addEventListener('mouseenter', function() {
-  firstSpan.classList.add('headline--anim');
-  secondSpan.classList.add('headline--anim');
+  headline.classList.add('headline--anim');
+  firstSpan.classList.add('span--first--slide');
+  secondSpan.classList.add('span--second--slide')
 });
 heroImg.addEventListener('mouseleave', function() {
-  firstSpan.classList.remove('headline--anim');
-  secondSpan.classList.remove('headline--anim');
+  headline.classList.remove('headline--anim');
+  firstSpan.classList.remove('span--first--slide')
+  secondSpan.classList.remove('span--second--slide')
+
 })
