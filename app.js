@@ -1,3 +1,11 @@
+// Locomotive
+import LocomotiveScroll from 'locomotive-scroll';
+const scroll = new LocomotiveScroll({
+  el: document.querySelector('[data-scroll-container]'),
+  smooth: true,
+  lerp: 0.05
+});
+
 // Custom Scrollbar
 const scrollBar = document.querySelector('.progress-scrollbar');
 
@@ -63,5 +71,4 @@ heroImg.addEventListener('mouseleave', function() {
   headline.classList.remove('headline--anim');
   firstSpan.classList.remove('span--first--slide')
   secondSpan.classList.remove('span--second--slide')
-
-})
+});
