@@ -25,6 +25,7 @@
 body {
   background-color: var(--bg-primary);
   font-family: "DM Serif Display", serif;
+  margin: 0;
 }
 a {
   cursor: none;
@@ -94,7 +95,7 @@ span::selection {
   justify-content: center;
 }
 .img__container {
-  margin-top: 15rem;
+  margin-top: 7rem;
   clip-path: path("M 0 100 L 0,150 A 5,7 0,0,1 450,850 L 0 680 z");
   transition: clip-path 1000ms;
 }
@@ -119,15 +120,17 @@ span::selection {
 }
 .headline--first {
   position: absolute;
-  top: 52%;
+  top: 41%;
   left: 20%;
-  transition: font-weight 575ms, transform 750ms ease-in-out;
+  /* transition: font-weight 575ms, transform 750ms ease-in-out; */
+  transition: font-weight 500ms ease-in-out;
 }
 .headline--second {
   position: absolute;
-  top: 62%;
+  top: 52%;
   right: 6%;
-  transition: font-weight 575ms, transform 600ms ease-in-out;
+  /* transition: font-weight 575ms, transform 600ms ease-in-out; */
+  transition: font-weight 500ms ease-in-out;
 }
 .headline--anim {
   font-weight: 900;
@@ -283,11 +286,10 @@ span::selection {
 }
 .vertical__container {
   grid-area: vert;
-  grid-row: 1 / span 5;
+  grid-row: 1 / -1;
   display: flex;
   writing-mode: vertical-rl;
   height: 100%;
-  gap: 35rem;
   justify-content: space-around;
 }
 .vertical__text {
@@ -297,8 +299,7 @@ span::selection {
   font-style: italic;
 }
 .vertical__text.text--1 {
-  top: 40%;
-  right: 2%;
+  margin-bottom: -6.5rem;
 }
 /* Gallery */
 .gall__container {
@@ -311,6 +312,18 @@ span::selection {
   height: 350px;
   object-fit: cover;
   /* align-self: center; */
+}
+.gall__img.img--1 {
+  grid-row: 2;
+}
+.gall__img.img--2 {
+  grid-row: 3;
+}
+.gall__img.img--3 {
+  grid-row: 4;
+}
+.gall__img.img--4 {
+  grid-row: 5;
 }
 .gall__caption {
   font-family: "Playfair Display", serif;
@@ -328,11 +341,15 @@ span::selection {
 /* Spinning Text */
 .spinning__container {
   grid-area: spinning;
-  align-self: end;
-  padding-top: 10rem;
+  align-self: start;
 }
 .spinning--text {
   animation: rotating-text 9500ms linear infinite forwards;
+}
+
+.contact__container {
+  min-height: 20vh;
+  background: var(--bg-black);
 }
 
 @media (prefers-reduced-motion) {

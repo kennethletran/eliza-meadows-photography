@@ -3281,8 +3281,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // Locomotive
 var scroll = new _locomotiveScroll.default({
   el: document.querySelector('[data-scroll-container]'),
-  smooth: true,
-  lerp: 0.05
+  smooth: true
 }); // Custom Scrollbar
 // const scrollBar = document.querySelector('.progress-scrollbar');
 // window.onscroll = function() {scrollIndicator()};
@@ -3372,7 +3371,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "40741" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "33581" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
