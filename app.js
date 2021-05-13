@@ -7,20 +7,20 @@ const scroll = new LocomotiveScroll({
 });
 
 // Custom Scrollbar
-const scrollBar = document.querySelector('.progress-scrollbar');
+// const scrollBar = document.querySelector('.progress-scrollbar');
 
-window.onscroll = function() {scrollIndicator()};
+// window.onscroll = function() {scrollIndicator()};
 
-function scrollIndicator() {
-  let windowScroll = document.body.scrollTop || document.documentElement.scrollTop;
-  // scrollHeight is the minimum height required to fit all content in the viewport without using a scrollbar
-  let scrollHeight = document.documentElement.scrollHeight;
-  // clientHeight is the viewport height
-  let clientHeight = document.documentElement.clientHeight;
-  let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-  let scrolled = (windowScroll / height) * 100;
-  scrollBar.style.width = `${scrolled}%`;
-}
+// function scrollIndicator() {
+//   let windowScroll = document.body.scrollTop || document.documentElement.scrollTop;
+//   // scrollHeight is the minimum height required to fit all content in the viewport without using a scrollbar
+//   let scrollHeight = document.documentElement.scrollHeight;
+//   // clientHeight is the viewport height
+//   let clientHeight = document.documentElement.clientHeight;
+//   let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+//   let scrolled = (windowScroll / height) * 100;
+//   scrollBar.style.width = `${scrolled}%`;
+// }
 
 // Custom Cursor
 const customCursors = document.querySelectorAll('.circle-cursor');

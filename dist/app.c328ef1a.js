@@ -3281,26 +3281,22 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // Locomotive
 var scroll = new _locomotiveScroll.default({
   el: document.querySelector('[data-scroll-container]'),
-  smooth: true
+  smooth: true,
+  lerp: 0.05
 }); // Custom Scrollbar
-
-var scrollBar = document.querySelector('.progress-scrollbar');
-
-window.onscroll = function () {
-  scrollIndicator();
-};
-
-function scrollIndicator() {
-  var windowScroll = document.body.scrollTop || document.documentElement.scrollTop; // scrollHeight is the minimum height required to fit all content in the viewport without using a scrollbar
-
-  var scrollHeight = document.documentElement.scrollHeight; // clientHeight is the viewport height
-
-  var clientHeight = document.documentElement.clientHeight;
-  var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-  var scrolled = windowScroll / height * 100;
-  scrollBar.style.width = "".concat(scrolled, "%");
-} // Custom Cursor
-
+// const scrollBar = document.querySelector('.progress-scrollbar');
+// window.onscroll = function() {scrollIndicator()};
+// function scrollIndicator() {
+//   let windowScroll = document.body.scrollTop || document.documentElement.scrollTop;
+//   // scrollHeight is the minimum height required to fit all content in the viewport without using a scrollbar
+//   let scrollHeight = document.documentElement.scrollHeight;
+//   // clientHeight is the viewport height
+//   let clientHeight = document.documentElement.clientHeight;
+//   let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+//   let scrolled = (windowScroll / height) * 100;
+//   scrollBar.style.width = `${scrolled}%`;
+// }
+// Custom Cursor
 
 var customCursors = document.querySelectorAll('.circle-cursor');
 customCursors.forEach(function (cursor) {
@@ -3376,7 +3372,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "35819" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "40741" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
