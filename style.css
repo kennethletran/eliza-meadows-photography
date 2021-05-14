@@ -39,8 +39,14 @@ p {
 }
 h1::selection,
 p::selection,
-span::selection {
+span::selection,
+img::selection,
+figcaption::selection {
   color: var(--bg-primary);
+  background-color: var(--accent-color);
+}
+a::selection {
+  color: var(--bg-white);
   background-color: var(--accent-color);
 }
 
@@ -69,26 +75,31 @@ span::selection {
   z-index: 10000;
   pointer-events: none;
   border-radius: 50%;
+  transition: background 250ms, transform 250ms ease-in-out;
+  transform-origin: 100% 100%;
 }
-.outer-cursor {
-  /* consider taking this cursor out */
-  width: 5rem;
-  height: 5rem;
-  border: 2px solid var(--accent-color);
+.circle-cursor.cursor-expand {
+  transform: scale(4);
   background: transparent;
-  transform: translate(-50%, -50%);
-  /* transition: all 50ms ease-in-out; */
+  border: var(--accent-color) solid 0.1rem;
+}
+.circle-cursor.cursor-image {
+  transform: scale(3);
+  background: transparent;
+  border: var(--accent-color) solid 0.1rem;
+  backdrop-filter: saturate(200%) blur(1px);
+  backdrop-filter: grayscale(40%) blur(1px);
 }
 .inner-cursor {
-  width: 1rem;
-  height: 1rem;
+  width: 2rem;
+  height: 2rem;
   background: var(--accent-color);
   transform: translate(-50%, -50%);
 }
 
 /* Hero */
 .hero__container {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -242,12 +253,19 @@ span::selection {
   text-decoration: none;
   color: var(--accent-color);
 }
+.menu__link.hovered-link {
+  color: var(--bg-white);
+}
+.menu__link:focus-visible {
+  outline: var(--accent-color) auto 0.1rem;
+  outline-offset: 0.3rem;
+}
 .prevent--scrolling {
   overflow-y: hidden;
 }
 /* Body Content */
 .body__container {
-  height: 100vh;
+  min-height: 100vh;
   margin-top: 6rem;
   padding: 0 0 4rem 3rem;
   gap: 1rem;
@@ -307,11 +325,14 @@ span::selection {
   display: flex;
   flex-direction: column;
 }
+.fig__container {
+  position: relative;
+  height: 450px;
+  width: 300px;
+}
 .gall__img {
-  width: 250px;
-  height: 350px;
+  width: 100%;
   object-fit: cover;
-  /* align-self: center; */
 }
 .gall__img.img--1 {
   grid-row: 2;
@@ -333,9 +354,9 @@ span::selection {
   letter-spacing: -0.35rem;
   font-style: italic;
   align-self: center;
-  position: relative;
-  top: -21%;
-  left: -5%;
+  position: absolute;
+  bottom: 92%;
+  right: -8%;
 }
 
 /* Spinning Text */

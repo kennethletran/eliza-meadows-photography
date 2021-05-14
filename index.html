@@ -18,17 +18,17 @@
   </div> -->
 
   <!-- Custom Cursor -->
-  <div class="circle-cursor outer-cursor hide-on-mobile" aria-hidden="true"></div>
+  <!-- <div class="circle-cursor outer-cursor hide-on-mobile" aria-hidden="true"></div> -->
   <div class="circle-cursor inner-cursor hide-on-mobile" aria-hidden="true"></div>
 
   <main data-scroll-container>
 
     <!-- Hero -->
     <div class="hero__container" data-scroll-section>
-      <div class="img__container" data-scroll data-scroll-speed="3" data-scroll-delay="0.1">
+      <div class="img__container" data-scroll data-scroll-speed="3">
         <img class="hero__img" src="img/hero-img.jpg" alt="some image">
       </div>
-      <h1 class="headline hide-on-mobile"><span class="headline--first" data-scroll data-scroll-speed="2" data-scroll-delay="0.5">Eliza</span><span class="headline--second" data-scroll data-scroll-speed="3" data-scroll-delay="0.2">Meadows</span></h1>
+      <h1 class="headline hide-on-mobile" data-scroll><span class="headline--first" data-scroll data-scroll-speed="-2" data-scroll-direction="horizontal" data-scroll-repeat>Eliza</span><span class="headline--second" data-scroll data-scroll-speed="3" data-scroll-direction="horizontal" data-scroll-repeat>Meadows</span></h1>
     </div>
 
     <!-- Menu -->
@@ -58,23 +58,37 @@
       </ul>
     </nav>
     <!-- Body Content -->
-    <section class="body__container" data-scroll-section>
-      <p class="sub__headline" data-scroll data-scroll-speed="3" data-scroll-delay="1">London-based photographer with a fervency for portraits</p>
-      <p class="info" data-scroll data-scroll-speed="5" data-scroll-delay="0.3">The essence of a photograph is to share in the subject's vulnerability. To capture a subject in their most natural, candid state is to embrace the realism of a singular moment. All photographs corroborate time's inevitable metamorphosis.</p>
+    <section class="body__container" id="body" data-scroll-section>
+      <p class="sub__headline" data-scroll data-scroll-delay="1" data-scroll-speed="2" data-scroll-target="#body" data-scroll-position="left">London-based photographer specializing in portraits</p>
+      <p class="info" data-scroll data-scroll-speed="6" data-scroll-delay="0.2" data-scroll-target="#body" data-scroll-position="left">The essence of a photograph is to share in the subject's vulnerability. To capture a subject in their most natural, candid state is to embrace the realism of a singular moment. All photographs corroborate time's inevitable metamorphosis.</p>
       <!-- Vertical Text -->
-      <div class="vertical__container" data-scroll-section>
-        <span class="vertical__text text--1" data-scroll data-scroll-speed="2" data--scroll-delay="0.1">creativity</span><span class="vertical__text text--2" data-scroll data-scroll-speed="2" data--scroll-delay="0.1">vision</span><span class="vertical__text text--3" data-scroll data-scroll-speed="2" data--scroll-delay="0.1">imagination</span>
+      <div class="vertical__container" data-scroll data-scroll-speed="2" data-scroll-delay="0.5" data-scroll-repeat>
+        <span class="vertical__text text--1" data-scroll data-scroll-speed="7">creativity</span><span class="vertical__text text--2" data-scroll data-scroll-speed="5" data-scroll-delay="0.5">vision</span><span class="vertical__text text--3" data-scroll data-scroll-speed="3">imagination</span>
       </div>
       <!-- Gallery Showcase -->
-      <div class="gall__container" data-scroll-section>
-        <span class="gall__caption" data-scroll data-scroll-delay="0.4">01</span>
-        <img src="img/gall-img1.jpg" alt="some image" class="gall__img gall__img--1">
-        <span class="gall__caption">02</span>
+      <div class="gall__container" data-scroll data-scroll-delay="0.5">
+        <figure class="fig__container" data-scroll data-scroll-speed="2">
+          <img src="img/gall-img1.jpg" alt="some image" class="gall__img gall__img--1">
+          <figcaption class="gall__caption">01</figcaption>
+        </figure>
+        <figure class="fig__container" data-scroll data-scroll-speed="2">
+          <img src="img/gall-img2.jpg" alt="some image" class="gall__img gall__img--1">
+          <figcaption class="gall__caption">02</figcaption>
+        </figure>
+        <figure class="fig__container" data-scroll data-scroll-speed="2">
+          <img src="img/gall-img3.jpg" alt="some image" class="gall__img gall__img--1">
+          <figcaption class="gall__caption">03</figcaption>
+        </figure>
+        <figure class="fig__container" data-scroll data-scroll-speed="2">
+          <img src="img/gall-img4.jpg" alt="some image" class="gall__img gall__img--1">
+          <figcaption class="gall__caption">04</figcaption>
+        </figure>
+        <!-- <span class="gall__caption">02</span>
         <img src="img/gall-img2.jpg" alt="some image" class="gall__img gall__img--2">
         <span class="gall__caption">03</span>
         <img src="img/gall-img3.jpg" alt="some image" class="gall__img gall__img--3">
         <span class="gall__caption">04</span>
-        <img src="img/gall-img4.jpg" alt="some image" class="gall__img gall__img--4">
+        <img src="img/gall-img4.jpg" alt="some image" class="gall__img gall__img--4"> -->
       </div>
       <div class="spinning__container" data-scroll data-scroll-delay="0.5" data-scroll-speed="2">
         <img src="img/spinning-text.svg" alt="image with circular text saying hire me" class="spinning--text">

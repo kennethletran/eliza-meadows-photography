@@ -3297,19 +3297,11 @@ var scroll = new _locomotiveScroll.default({
 // }
 // Custom Cursor
 
-var customCursors = document.querySelectorAll('.circle-cursor');
-customCursors.forEach(function (cursor) {
-  return document.addEventListener('mousemove', function (e) {
-    cursor.style.left = "".concat(e.pageX, "px");
-    cursor.style.top = "".concat(e.pageY, "px");
-  });
-}); // for (const cursor of customCursors) {
-//   document.addEventListener('mousemove', function(e) {
-//     cursor.style.left = `${e.pageX}px`;
-//     cursor.style.top = `${e.pageY}px`;
-//   })
-// };
-// Menu
+var customCursor = document.querySelector('.circle-cursor');
+document.addEventListener('mousemove', function (e) {
+  customCursor.style.left = "".concat(e.pageX, "px");
+  customCursor.style.top = "".concat(e.pageY, "px");
+}); // Menu
 
 var menuButton = document.querySelector('.menu__button');
 var menuContainer = document.querySelector('.menu__container');
@@ -3327,13 +3319,35 @@ function handleMenuClick() {
   }
 }
 
-menuButton.addEventListener('click', handleMenuClick); // Font Weight Hover
+menuButton.addEventListener('click', handleMenuClick); // Cursor & Link Hovers
+
+var menuLinks = document.querySelectorAll('.menu__link');
+menuLinks.forEach(function (link) {
+  link.addEventListener("mouseleave", function () {
+    customCursor.classList.remove('cursor-expand');
+    link.classList.remove('hovered-link');
+  });
+  link.addEventListener("mouseover", function () {
+    customCursor.classList.add('cursor-expand');
+    link.classList.add('hovered-link');
+  });
+}); // Cursor & Image Hovers 
+
+var gallImages = document.querySelectorAll('.gall__img');
+gallImages.forEach(function (img) {
+  img.addEventListener("mouseleave", function () {
+    customCursor.classList.remove('cursor-image');
+  });
+  img.addEventListener("mouseover", function () {
+    customCursor.classList.add('cursor-image');
+  });
+}); // Font Weight Hover
 
 var firstSpan = document.querySelector('.headline--first');
 var secondSpan = document.querySelector('.headline--second');
 var headline = document.querySelector('.headline');
 var heroImg = document.querySelector('.hero__img');
-heroImg.addEventListener('mouseenter', function () {
+heroImg.addEventListener('mouseover', function () {
   headline.classList.add('headline--anim');
   firstSpan.classList.add('span--first--slide');
   secondSpan.classList.add('span--second--slide');
@@ -3371,7 +3385,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "33581" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "36871" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

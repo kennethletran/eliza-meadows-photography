@@ -22,19 +22,11 @@ const scroll = new LocomotiveScroll({
 // }
 
 // Custom Cursor
-const customCursors = document.querySelectorAll('.circle-cursor');
-
-customCursors.forEach((cursor) => document.addEventListener('mousemove', function(e) {
-  cursor.style.left = `${e.pageX}px`;
-  cursor.style.top = `${e.pageY}px`;
-}));
-
-// for (const cursor of customCursors) {
-//   document.addEventListener('mousemove', function(e) {
-//     cursor.style.left = `${e.pageX}px`;
-//     cursor.style.top = `${e.pageY}px`;
-//   })
-// };
+const customCursor = document.querySelector('.circle-cursor');
+document.addEventListener('mousemove', (e) => {
+  customCursor.style.left = `${e.pageX}px`;
+  customCursor.style.top = `${e.pageY}px`;
+});
 
 // Menu
 const menuButton = document.querySelector('.menu__button');
@@ -54,6 +46,29 @@ function handleMenuClick() {
 }
 menuButton.addEventListener('click', handleMenuClick);
 
+// Cursor & Link Hovers
+const menuLinks = document.querySelectorAll('.menu__link');
+menuLinks.forEach(link => {
+  link.addEventListener("mouseleave", () => {
+    customCursor.classList.remove('cursor-expand');
+    link.classList.remove('hovered-link');
+  });
+  link.addEventListener("mouseover", () => {
+    customCursor.classList.add('cursor-expand');
+    link.classList.add('hovered-link');
+  });
+});
+
+// Cursor & Image Hovers 
+const gallImages = document.querySelectorAll('.gall__img');
+gallImages.forEach(img => {
+  img.addEventListener("mouseleave", () => {
+    customCursor.classList.remove('cursor-image');
+  });
+  img.addEventListener("mouseover", () => {
+    customCursor.classList.add('cursor-image');
+  });
+})
 
 // Font Weight Hover
 const firstSpan = document.querySelector('.headline--first');
@@ -61,7 +76,7 @@ const secondSpan = document.querySelector('.headline--second');
 const headline = document.querySelector('.headline');
 const heroImg = document.querySelector('.hero__img');
 
-heroImg.addEventListener('mouseenter', function() {
+heroImg.addEventListener('mouseover', function() {
   headline.classList.add('headline--anim');
   firstSpan.classList.add('span--first--slide');
   secondSpan.classList.add('span--second--slide')
