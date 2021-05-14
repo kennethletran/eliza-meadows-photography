@@ -83,12 +83,16 @@ a::selection {
   background: transparent;
   border: var(--accent-color) solid 0.1rem;
 }
+.circle-cursor.cursor-expand-social {
+  transform: scale(2);
+  background: transparent;
+  border: var(--accent-color) solid 0.1rem;
+}
 .circle-cursor.cursor-image {
   transform: scale(3);
   background: transparent;
   border: var(--accent-color) solid 0.1rem;
-  backdrop-filter: saturate(200%) blur(1px);
-  backdrop-filter: grayscale(40%) blur(1px);
+  backdrop-filter: grayscale(70%);
 }
 .inner-cursor {
   width: 2rem;
@@ -116,7 +120,6 @@ a::selection {
   filter: grayscale(0.7) blur(1px);
 }
 .hero__img:hover {
-  /* filter: contrast(0.7) saturate(200%); */
   filter: none;
 }
 .img__container:hover {
@@ -221,6 +224,7 @@ a::selection {
   clip-path: circle(20px at 5.5rem 5.5rem);
   transition: clip-path ease-in-out 750ms;
   z-index: 100;
+  font-family: "Playfair Display", serif;
 }
 .menu__container.menu--expand {
   clip-path: circle(100%);
@@ -245,7 +249,7 @@ a::selection {
   margin-left: 25rem;
 }
 .menu__link {
-  font-family: "Playfair Display", serif;
+  /* font-family: "Playfair Display", serif; */
   font-weight: 900;
   font-style: italic;
   letter-spacing: 0.35rem;
@@ -253,10 +257,32 @@ a::selection {
   text-decoration: none;
   color: var(--accent-color);
 }
-.menu__link.hovered-link {
+.social__links {
+  list-style: none;
+  padding: 0 2rem;
+  position: absolute;
+  height: auto;
+  width: 25%;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.social__link {
+  /* font-family: "Playfair Display", serif; */
+  font-weight: 900;
+  font-style: italic;
+  font-size: 2rem;
+  text-decoration: none;
+  color: var(--accent-color);
+}
+.menu__link.hovered-link,
+.social__link.hovered-link {
   color: var(--bg-white);
 }
-.menu__link:focus-visible {
+.menu__link:focus-visible,
+.social__link:focus-visible {
   outline: var(--accent-color) auto 0.1rem;
   outline-offset: 0.3rem;
 }
@@ -266,7 +292,6 @@ a::selection {
 /* Body Content */
 .body__container {
   min-height: 100vh;
-  margin-top: 6rem;
   padding: 0 0 4rem 3rem;
   gap: 1rem;
   display: grid;
@@ -332,6 +357,7 @@ a::selection {
 }
 .gall__img {
   width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 .gall__img.img--1 {
@@ -355,7 +381,7 @@ a::selection {
   font-style: italic;
   align-self: center;
   position: absolute;
-  bottom: 92%;
+  bottom: 61%;
   right: -8%;
 }
 

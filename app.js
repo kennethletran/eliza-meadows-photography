@@ -48,6 +48,8 @@ menuButton.addEventListener('click', handleMenuClick);
 
 // Cursor & Link Hovers
 const menuLinks = document.querySelectorAll('.menu__link');
+const socialLinks = document.querySelectorAll('.social__link');
+
 menuLinks.forEach(link => {
   link.addEventListener("mouseleave", () => {
     customCursor.classList.remove('cursor-expand');
@@ -58,6 +60,18 @@ menuLinks.forEach(link => {
     link.classList.add('hovered-link');
   });
 });
+
+socialLinks.forEach(social => {
+  social.addEventListener('mouseleave', () => {
+    customCursor.classList.remove('cursor-expand-social');
+    social.classList.remove('hovered-link');
+  });
+  social.addEventListener('mouseover', () => {
+    customCursor.classList.add('cursor-expand-social');
+    social.classList.add('hovered-link');
+  });
+});
+
 
 // Cursor & Image Hovers 
 const gallImages = document.querySelectorAll('.gall__img');

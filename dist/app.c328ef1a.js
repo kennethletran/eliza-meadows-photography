@@ -3322,6 +3322,7 @@ function handleMenuClick() {
 menuButton.addEventListener('click', handleMenuClick); // Cursor & Link Hovers
 
 var menuLinks = document.querySelectorAll('.menu__link');
+var socialLinks = document.querySelectorAll('.social__link');
 menuLinks.forEach(function (link) {
   link.addEventListener("mouseleave", function () {
     customCursor.classList.remove('cursor-expand');
@@ -3330,6 +3331,16 @@ menuLinks.forEach(function (link) {
   link.addEventListener("mouseover", function () {
     customCursor.classList.add('cursor-expand');
     link.classList.add('hovered-link');
+  });
+});
+socialLinks.forEach(function (social) {
+  social.addEventListener('mouseleave', function () {
+    customCursor.classList.remove('cursor-expand-social');
+    social.classList.remove('hovered-link');
+  });
+  social.addEventListener('mouseover', function () {
+    customCursor.classList.add('cursor-expand-social');
+    social.classList.add('hovered-link');
   });
 }); // Cursor & Image Hovers 
 
@@ -3385,7 +3396,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "36871" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "36055" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
