@@ -10,6 +10,7 @@
   --bg-black: hsl(0, 0%, 0%);
   --bg-white: hsl(0, 0%, 100%);
   --accent-color: hsl(202, 83%, 82%);
+  --accent-color-opaque: hsla(202, 83%, 82%, 0.6);
 
   font-size: 10px;
   cursor: none;
@@ -90,7 +91,7 @@ a::selection {
 }
 .circle-cursor.cursor-image {
   transform: scale(3);
-  background: transparent;
+  background: var(--accent-color-opaque);
   border: var(--accent-color) solid 0.1rem;
   backdrop-filter: grayscale(70%);
 }

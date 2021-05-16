@@ -90,7 +90,8 @@ a::selection {
 }
 .circle-cursor.cursor-image {
   transform: scale(3);
-  background: transparent;
+  background: var(--accent-color);
+  opacity: 0.8;
   border: var(--accent-color) solid 0.1rem;
   backdrop-filter: grayscale(70%);
 }
@@ -381,7 +382,7 @@ a::selection {
   font-style: italic;
   align-self: center;
   position: absolute;
-  bottom: 92%;
+  bottom: 61%;
   right: -8%;
 }
 
