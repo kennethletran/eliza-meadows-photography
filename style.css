@@ -10,7 +10,7 @@
   --bg-black: hsl(0, 0%, 0%);
   --bg-white: hsl(0, 0%, 100%);
   --accent-color: hsl(202, 83%, 82%);
-  --accent-color-opaque: hsla(202, 83%, 82%, 0.6);
+  --accent-color-opaque: hsla(202, 83%, 82%, 0.3);
 
   font-size: 10px;
   cursor: none;
