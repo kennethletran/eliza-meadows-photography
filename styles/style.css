@@ -179,7 +179,7 @@ a::selection {
 .menu__button span {
   display: inline-block;
   width: 2.5rem;
-  height: 0.2rem;
+  height: 0.1rem;
   background-color: var(--text-color);
   z-index: 1000;
   transition: background 300ms ease-in-out;
