@@ -3282,20 +3282,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var scroll = new _locomotiveScroll.default({
   el: document.querySelector('[data-scroll-container]'),
   smooth: true
-}); // Custom Scrollbar
-// const scrollBar = document.querySelector('.progress-scrollbar');
-// window.onscroll = function() {scrollIndicator()};
-// function scrollIndicator() {
-//   let windowScroll = document.body.scrollTop || document.documentElement.scrollTop;
-//   // scrollHeight is the minimum height required to fit all content in the viewport without using a scrollbar
-//   let scrollHeight = document.documentElement.scrollHeight;
-//   // clientHeight is the viewport height
-//   let clientHeight = document.documentElement.clientHeight;
-//   let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-//   let scrolled = (windowScroll / height) * 100;
-//   scrollBar.style.width = `${scrolled}%`;
-// }
-// Custom Cursor
+}); // Custom Cursor
 
 var customCursor = document.querySelector('.circle-cursor');
 document.addEventListener('mousemove', function (e) {
@@ -3305,17 +3292,14 @@ document.addEventListener('mousemove', function (e) {
 
 var menuButton = document.querySelector('.menu__button');
 var menuContainer = document.querySelector('.menu__container');
-var pageContainer = document.querySelector('.page__container');
 
 function handleMenuClick() {
   if (menuButton.classList.contains('menu--open')) {
     menuButton.classList.remove('menu--open');
     menuContainer.classList.remove('menu--expand');
-    pageContainer.classList.remove('prevent--scrolling');
   } else {
     menuButton.classList.add('menu--open');
     menuContainer.classList.add('menu--expand');
-    pageContainer.classList.add('prevent--scrolling');
   }
 }
 
@@ -3354,19 +3338,13 @@ gallImages.forEach(function (img) {
   });
 }); // Font Weight Hover
 
-var firstSpan = document.querySelector('.headline--first');
-var secondSpan = document.querySelector('.headline--second');
 var headline = document.querySelector('.headline');
 var heroImg = document.querySelector('.hero__img');
 heroImg.addEventListener('mouseover', function () {
   headline.classList.add('headline--anim');
-  firstSpan.classList.add('span--first--slide');
-  secondSpan.classList.add('span--second--slide');
 });
 heroImg.addEventListener('mouseleave', function () {
   headline.classList.remove('headline--anim');
-  firstSpan.classList.remove('span--first--slide');
-  secondSpan.classList.remove('span--second--slide');
 });
 },{"locomotive-scroll":"node_modules/locomotive-scroll/dist/locomotive-scroll.esm.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -3396,7 +3374,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "38565" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "39889" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -5,12 +5,21 @@
 }
 
 :root {
+  /* Colors */
   --text-color: hsl(0, 0%, 9%);
   --bg-primary: hsl(30, 63%, 90%);
   --bg-black: hsl(0, 0%, 0%);
+  --bg-black-transparent: hsla(0, 0%, 0%, 0.5);
   --bg-white: hsl(0, 0%, 100%);
   --accent-color: hsl(202, 83%, 82%);
-  --accent-color-opaque: hsla(202, 83%, 82%, 0.3);
+  --accent-color-transparent: hsla(202, 83%, 82%, 0.3);
+
+  /* Transitions and Animations */
+  --timing-in: ease-in;
+  --timing-out: ease-in-out;
+  --duration-short: 250ms;
+  --duration-medium: 750ms;
+  --duration-long: 1000ms;
 
   font-size: 10px;
   cursor: none;
@@ -27,6 +36,7 @@ body {
   background-color: var(--bg-primary);
   font-family: "DM Serif Display", serif;
   margin: 0;
+  color: var(--text-color);
 }
 a {
   cursor: none;
@@ -39,6 +49,7 @@ p {
   margin: 0;
 }
 h1::selection,
+h2::selection,
 p::selection,
 span::selection,
 img::selection,
@@ -51,23 +62,6 @@ a::selection {
   background-color: var(--accent-color);
 }
 
-/* Custom Scrollbar */
-/* .progress-container {
-  width: 100%;
-  height: 0.6rem;
-  background: transparent;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1;
-}
-.progress-scrollbar {
-  height: 100%;
-  width: 0;
-  background: var(--accent-color);
-  border-bottom-right-radius: 1rem;
-} */
-
 /* Custom Cursor */
 .circle-cursor {
   position: absolute;
@@ -76,11 +70,12 @@ a::selection {
   z-index: 10000;
   pointer-events: none;
   border-radius: 50%;
-  transition: background 250ms, transform 250ms ease-in-out;
+  transition: background var(--duration-short),
+    transform var(--duration-short) var(--timing-out);
   transform-origin: 100% 100%;
 }
 .circle-cursor.cursor-expand {
-  transform: scale(4);
+  transform: scale(3.5);
   background: transparent;
   border: var(--accent-color) solid 0.1rem;
 }
@@ -91,7 +86,7 @@ a::selection {
 }
 .circle-cursor.cursor-image {
   transform: scale(3);
-  background: var(--accent-color-opaque);
+  background: var(--accent-color-transparent);
   border: var(--accent-color) solid 0.1rem;
   backdrop-filter: grayscale(70%);
 }
@@ -106,18 +101,16 @@ a::selection {
 .hero__container {
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 .img__container {
-  margin-top: 7rem;
   clip-path: path("M 0 100 L 0,150 A 5,7 0,0,1 450,850 L 0 680 z");
-  transition: clip-path 1000ms;
+  transition: clip-path var(--duration-long);
 }
 .hero__img {
   width: 450px;
-  transition: all 1000ms ease-in-out;
+  transition: all var(--duration-long) var(--timing-out);
   filter: grayscale(0.7) blur(1px);
 }
 .hero__img:hover {
@@ -130,31 +123,23 @@ a::selection {
   font-family: "Playfair Display", serif;
   color: var(--accent-color);
   letter-spacing: 0.2rem;
-  font-weight: 100;
+  font-weight: 400;
   text-transform: uppercase;
 }
 .headline--first {
   position: absolute;
   top: 41%;
   left: 20%;
-  /* transition: font-weight 575ms, transform 750ms ease-in-out; */
-  transition: font-weight 500ms ease-in-out;
+  transition: font-weight var(--duration-short) var(--timing-out);
 }
 .headline--second {
   position: absolute;
   top: 52%;
   right: 6%;
-  /* transition: font-weight 575ms, transform 600ms ease-in-out; */
-  transition: font-weight 500ms ease-in-out;
+  transition: font-weight var(--duration-short) var(--timing-out);
 }
 .headline--anim {
   font-weight: 900;
-}
-.span--first--slide {
-  transform: translateX(6rem);
-}
-.span--second--slide {
-  transform: translateX(-10rem);
 }
 
 /* Menu */
@@ -171,7 +156,7 @@ a::selection {
   justify-content: space-evenly;
   z-index: 500;
   background-color: var(--bg-primary);
-  transition: background 250ms ease-in;
+  transition: background var(--duration-short) var(--timing-in);
 }
 .menu__button:hover {
   background-color: var(--bg-black);
@@ -179,10 +164,10 @@ a::selection {
 .menu__button span {
   display: inline-block;
   width: 2.5rem;
-  height: 0.1rem;
+  height: 0.2rem;
   background-color: var(--text-color);
   z-index: 1000;
-  transition: background 300ms ease-in-out;
+  transition: background var(--duration-short) var(--timing-out);
 }
 .menu__button:hover span {
   background-color: var(--bg-primary);
@@ -201,11 +186,11 @@ a::selection {
 }
 .menu__button span:first-child {
   transform: translateY(0.5rem);
-  transition: transform 250ms ease-in;
+  transition: transform var(--duration-short) var(--timing-in);
 }
 .menu__button span:last-child {
   transform: translateY(-0.5rem);
-  transition: transform 250ms ease-in;
+  transition: transform var(--duration-short) var(--timing-in);
 }
 .menu__button.menu--open span:first-child {
   transform-origin: center center;
@@ -223,7 +208,7 @@ a::selection {
   width: 100%;
   background-color: var(--bg-black);
   clip-path: circle(20px at 5.5rem 5.5rem);
-  transition: clip-path ease-in-out 750ms;
+  transition: clip-path ease-in-out var(--duration-medium);
   z-index: 100;
   font-family: "Playfair Display", serif;
 }
@@ -293,17 +278,32 @@ a::selection {
 /* Body Content */
 .body__container {
   min-height: 100vh;
-  padding: 0 0 4rem 3rem;
+  padding: 0 0 4rem 4rem;
   gap: 1rem;
   display: grid;
   grid-template-columns: 1fr 1fr 50px;
   grid-template-rows: repeat(5, 1fr);
   grid-template-areas:
-    "title ... vert"
+    "quote ... vert"
+    "... gall vert"
+    "title gall vert"
     "info gall vert"
-    "... gall vert"
-    "... gall vert"
-    "spinning gall vert";
+    "... gall vert";
+}
+.transition--quote {
+  font-size: 5rem;
+  grid-area: quote;
+  grid-column: 1 / span 2;
+  margin: 0 auto;
+  font-style: italic;
+  font-family: "Playfair Display", serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-top: 9rem;
+}
+.quote--highlighted {
+  display: inline-block;
+  color: var(--accent-color);
 }
 .sub__headline {
   grid-area: title;
@@ -315,7 +315,7 @@ a::selection {
   content: "";
   position: absolute;
   height: 0.2rem;
-  width: 5rem;
+  width: 14rem;
   top: -2rem;
   left: 0;
   background-color: var(--accent-color);
@@ -356,6 +356,12 @@ a::selection {
   height: 450px;
   width: 300px;
 }
+.fig__container:nth-of-type(2n) {
+  align-self: center;
+}
+.fig__container:nth-of-type(2n) .gall__indicator {
+  left: 148%;
+}
 .gall__img {
   width: 100%;
   height: 100%;
@@ -374,30 +380,150 @@ a::selection {
   grid-row: 5;
 }
 .gall__caption {
-  font-family: "Playfair Display", serif;
+  width: 150px;
   font-size: 8rem;
   font-weight: 600;
-  color: var(--accent-color);
   letter-spacing: -0.35rem;
-  font-style: italic;
   align-self: center;
   position: absolute;
-  bottom: 61%;
-  right: -8%;
+  top: 0;
+}
+.gall__indicator {
+  font-size: 20rem;
+  font-style: italic;
+  color: transparent;
+  -webkit-text-stroke-color: var(--accent-color);
+  -webkit-text-stroke-width: 2px;
+  font-weight: 400;
+  position: absolute;
+  top: 198%;
+  left: 205%;
+}
+.caption__details {
+  width: 20ch;
+  font-family: "Playfair Display", serif;
+  font-size: 2rem;
+  color: var(--accent-color);
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  padding-top: 4rem;
+  position: absolute;
+  top: 100%;
+  left: -175%;
+  width: 20ch;
+  text-align: right;
 }
 
-/* Spinning Text */
+/* Footer */
+.footer__container {
+  color: inherit;
+  padding: 0 4rem 0 4rem;
+  width: 100%;
+  height: 50vh;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* grid-template-areas:
+    "info  ..."
+    "input  copyright"; */
+  grid-template-areas:
+    "info spinning  ..."
+    "input spinning ..."
+    "... copyright copyright";
+  gap: 1rem;
+}
 .spinning__container {
+  position: fixed;
   grid-area: spinning;
-  align-self: start;
+  grid-row: 1 / span 3;
+  place-self: center;
+  margin: 7rem 7rem 0 0;
 }
 .spinning--text {
-  animation: rotating-text 9500ms linear infinite forwards;
+  animation: rotating-text 12000ms linear infinite forwards;
 }
-
 .contact__container {
-  min-height: 20vh;
-  background: var(--bg-black);
+  position: relative;
+  grid-area: info;
+  grid-row: 1 / span 2;
+  align-self: center;
+}
+.contact__info {
+  max-width: 30ch;
+  font-size: 1.75rem;
+  grid-area: info;
+}
+.input__container {
+  position: relative;
+  width: 30rem;
+  grid-area: input;
+}
+input {
+  cursor: none;
+  width: 100%;
+  margin-top: 5rem;
+  line-height: 2;
+  padding: 0;
+}
+.input__container input {
+  font-size: 3rem;
+  cursor: none;
+  font-family: inherit;
+  color: var(--bg-black-transparent);
+  background: var(--bg-primary);
+  appearance: none;
+  border: none;
+}
+.input__container input:focus {
+  outline: 0;
+}
+.input__container:focus-within input,
+.input__container:focus-within input::placeholder {
+  color: var(--accent-color);
+}
+.input__container:focus-within input::selection {
+  color: var(--bg-primary);
+  background-color: var(--accent-color);
+}
+.input__border {
+  left: 0;
+  height: 0.3rem;
+  width: 100%;
+  background: var(--bg-black-transparent);
+}
+.input__border,
+.input__border::after {
+  position: absolute;
+  bottom: 0;
+  transition: all 450ms ease-in-out;
+}
+.input__border::after {
+  content: "";
+  left: 0;
+  width: 0;
+  height: 110%;
+  background: var(--accent-color);
+}
+.input__container:focus-within .input__border::after {
+  width: 100%;
+}
+.copyright {
+  grid-area: copyright;
+  /* height: 15vh; */
+  height: 5vh;
+  font-size: 1.5rem;
+  font-family: "Playfair Display", serif;
+  justify-self: center;
+  align-self: end;
+  margin-left: auto;
+  padding-bottom: 2rem;
+}
+.copyright__link {
+  font-size: inherit;
+  text-decoration: none;
+  color: inherit;
+}
+.copyright__link:hover {
+  color: var(--accent-color);
 }
 
 @media (prefers-reduced-motion) {
@@ -408,9 +534,11 @@ a::selection {
 
 @keyframes rotating-text {
   0% {
+    /* transform: rotate(0deg) scale(1.1); */
     transform: rotate(0deg);
   }
   100% {
+    /* transform: rotate(360deg) scale(1.1); */
     transform: rotate(360deg);
   }
 }
