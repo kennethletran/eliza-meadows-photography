@@ -13,7 +13,7 @@
 <body>
 
   <!-- Custom Cursor -->
-  <div class="circle-cursor inner-cursor" aria-hidden="true"></div>
+  <div class="circle-cursor inner-cursor hide-on-mobile" aria-hidden="true"></div>
 
   <div data-scroll-container>
     <main>
@@ -22,7 +22,7 @@
         <div class="img__container" data-scroll data-scroll-speed="3">
           <img class="hero__img" src="images/hero-img.webp" alt="some image">
         </div>
-        <h1 class="headline hide-on-mobile" data-scroll><span class="headline--first" data-scroll data-scroll-speed="-3" data-scroll-direction="horizontal" data-scroll-repeat>Eliza</span><span class="headline--second" data-scroll data-scroll-speed="4" data-scroll-direction="horizontal" data-scroll-repeat>Meadows</span></h1>
+        <h1 class="headline" data-scroll><span class="headline--first" data-scroll data-scroll-speed="-3" data-scroll-direction="horizontal" data-scroll-repeat>Eliza</span><span class="headline--second" data-scroll data-scroll-speed="4" data-scroll-direction="horizontal" data-scroll-repeat>Meadows</span></h1>
       </div>
 
       <!-- Menu -->
@@ -31,7 +31,7 @@
         <span></span>
       </div>
       <nav class="menu__container">
-        <ul class="menu__links">
+        <ul class="menu__list">
           <li class="menu__item">
             <a href="#" class="menu__link">biography</a>
           </li>
@@ -59,23 +59,23 @@
       </nav>
       <!-- Body Content -->
       <section class="body__container" data-scroll data-scroll-section>
-        <h2 class="transition--quote" data-scroll>There is
+        <h2 class="quote" data-scroll>There is
           <span class="quote--highlighted" data-scroll data-scroll-speed="-1" data-scroll-offset="-100" data-scroll-delay="0.09" data-scroll-repeat>beauty</span> in the <span class="quote--highlighted" data-scroll data-scroll-speed="-1" data-scroll-offset="-100" data-scroll-delay="0.08" data-scroll-repeat>ordinary</spa>
         </h2>
         <p class="sub__headline" data-scroll data-scroll-delay="0.6" data-scroll-speed="2">London-based photographer specializing in portraits</p>
         <p class="info" data-scroll data-scroll-speed="5" data-scroll-delay="0.2">The essence of a photograph is to share in the subject's vulnerability. To capture a subject in their most natural, candid state is to embrace the realism of a singular moment. All photographs corroborate time's inevitable evolution.</p>
         <!-- Vertical Text -->
-        <div class="vertical__container" data-scroll data-scroll-speed="2" data-scroll-delay="0.5" data-scroll-repeat>
+        <div class="vertical__container hide-on-mobile" data-scroll data-scroll-speed="2" data-scroll-delay="0.5" data-scroll-repeat>
           <span class="vertical__text text--1" data-scroll data-scroll-speed="7">creativity</span><span class="vertical__text text--2" data-scroll data-scroll-speed="7">vision</span><span class="vertical__text text--3" data-scroll data-scroll-speed="7">imagination</span>
         </div>
         <!-- Gallery Showcase -->
         <div class="gall__container" data-scroll>
           <figure class="fig__container" data-scroll data-scroll-speed="2">
             <img src="images/gall-img1.webp" alt="man in tan coat sitting on a chair with his hands clasped" class="gall__img gall__img--1" data-scroll data-scroll-delay="0.5" data-scroll-speed="-1" loading="lazy">
-            <figcaption class="gall__caption" data-scroll data-scroll-speed="2" data-scroll-delay="0.12">
-              <span class="gall__indicator">01</span>
+            <figcaption class="gall__text" data-scroll data-scroll-speed="2" data-scroll-delay="0.12">
+              <span class="gall__indicator hide-on-mobile">01</span>
               <br>
-              <p class="caption__details">
+              <p class="gall__caption">
                 Charles Holm<br>
                 April 2019
               </p>
@@ -83,10 +83,10 @@
           </figure>
           <figure class="fig__container" data-scroll data-scroll-speed="2">
             <img src="images/gall-img2.webp" alt="woman in yellow holding a flower to her right eye while slightly leaning on a tree" class="gall__img gall__img--1" data-scroll data-scroll-delay="0.5" data-scroll-speed="-1" loading="lazy">
-            <figcaption class="gall__caption" data-scroll data-scroll-speed="2" data-scroll-delay="0.12">
-              <span class="gall__indicator">02</span>
+            <figcaption class="gall__text" data-scroll data-scroll-speed="2" data-scroll-delay="0.12">
+              <span class="gall__indicator hide-on-mobile">02</span>
               <br>
-              <p class="caption__details">
+              <p class="gall__caption">
                 May Woo<br>
                 October 2021
               </p>
@@ -94,10 +94,10 @@
           </figure>
           <figure class="fig__container" data-scroll data-scroll-speed="2">
             <img src="images/gall-img3.webp" alt="black and white side shot of a man" class="gall__img gall__img--1" data-scroll data-scroll-delay="0.5" data-scroll-speed="-1" loading="lazy">
-            <figcaption class="gall__caption" data-scroll data-scroll-speed="2" data-scroll-delay="0.12">
-              <span class="gall__indicator">03</span>
+            <figcaption class="gall__text" data-scroll data-scroll-speed="2" data-scroll-delay="0.12">
+              <span class="gall__indicator hide-on-mobile">03</span>
               <br>
-              <p class="caption__details">
+              <p class="gall__caption">
                 Clay Downey<br>
                 February 2020
               </p>
@@ -105,10 +105,10 @@
           </figure>
           <figure class="fig__container" data-scroll data-scroll-speed="2">
             <img src="images/gall-img4.webp" alt="woman posing against glowing lights" class="gall__img gall__img--1" data-scroll data-scroll-delay="0.5" data-scroll-speed="-1" loading="lazy">
-            <figcaption class="gall__caption" data-scroll data-scroll-speed="2" data-scroll-delay="0.12">
-              <span class="gall__indicator">04</span>
+            <figcaption class="gall__text" data-scroll data-scroll-speed="2" data-scroll-delay="0.12">
+              <span class="gall__indicator hide-on-mobile">04</span>
               <br>
-              <p class="caption__details">
+              <p class="gall__caption">
                 Lia Jewels<br>
                 August 2020
               </p>
@@ -130,9 +130,9 @@
           </div>
         </div>
       </div>
-      <p class="copyright" data-scroll data-scroll-position="bottom">
-        &copy; 2021 Eliza Meadows - All Rights Reserved -
-        <a href="http://github.com/kennethletran" class="copyright__link">Kenneth Le-Tran</a>
+      <p class="credits" data-scroll data-scroll-position="bottom">
+        A project by 
+        <a href="http://github.com/kennethletran" class="credits__link">Kenneth Le-Tran</a>
       </p>
     </footer>
   </div>

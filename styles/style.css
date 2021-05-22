@@ -48,6 +48,11 @@ p {
   font-size: 3rem;
   margin: 0;
 }
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 h1::selection,
 h2::selection,
 p::selection,
@@ -207,8 +212,8 @@ a::selection {
   height: 100%;
   width: 100%;
   background-color: var(--bg-black);
-  clip-path: circle(20px at 5.5rem 5.5rem);
-  transition: clip-path ease-in-out var(--duration-medium);
+  clip-path: circle(2rem at 5.5rem 5.5rem);
+  transition: clip-path var(--duration-medium) var(--timing-out);
   z-index: 100;
   font-family: "Playfair Display", serif;
 }
@@ -218,9 +223,7 @@ a::selection {
 .menu__container.menu--expand {
   overflow-y: hidden;
 }
-.menu__links {
-  list-style: none;
-  padding: 0;
+.menu__list {
   height: 90%;
   margin-top: 8rem;
   display: flex;
@@ -244,7 +247,6 @@ a::selection {
   color: var(--accent-color);
 }
 .social__links {
-  list-style: none;
   padding: 0 2rem;
   position: absolute;
   height: auto;
@@ -290,7 +292,7 @@ a::selection {
     "info gall vert"
     "... gall vert";
 }
-.transition--quote {
+.quote {
   font-size: 5rem;
   grid-area: quote;
   grid-column: 1 / span 2;
@@ -379,7 +381,7 @@ a::selection {
 .gall__img.img--4 {
   grid-row: 5;
 }
-.gall__caption {
+.gall__text {
   width: 150px;
   font-size: 8rem;
   font-weight: 600;
@@ -399,7 +401,7 @@ a::selection {
   top: 198%;
   left: 205%;
 }
-.caption__details {
+.gall__caption {
   width: 20ch;
   font-family: "Playfair Display", serif;
   font-size: 2rem;
@@ -426,7 +428,7 @@ a::selection {
     "info  ..."
     "input  copyright"; */
   grid-template-areas:
-    "info spinning  ..."
+    "contact spinning  ..."
     "input spinning ..."
     "... copyright copyright";
   gap: 1rem;
@@ -443,19 +445,17 @@ a::selection {
 }
 .contact__container {
   position: relative;
-  grid-area: info;
+  grid-area: contact;
   grid-row: 1 / span 2;
   align-self: center;
 }
 .contact__info {
   max-width: 30ch;
   font-size: 1.75rem;
-  grid-area: info;
 }
 .input__container {
   position: relative;
   width: 30rem;
-  grid-area: input;
 }
 input {
   cursor: none;
@@ -506,10 +506,9 @@ input {
 .input__container:focus-within .input__border::after {
   width: 100%;
 }
-.copyright {
-  grid-area: copyright;
-  /* height: 15vh; */
-  height: 5vh;
+.credits {
+  grid-area: credits;
+  /* height: 5vh; */
   font-size: 1.5rem;
   font-family: "Playfair Display", serif;
   justify-self: center;
@@ -517,12 +516,12 @@ input {
   margin-left: auto;
   padding-bottom: 2rem;
 }
-.copyright__link {
+.credits__link {
   font-size: inherit;
   text-decoration: none;
   color: inherit;
 }
-.copyright__link:hover {
+.credits__link:hover {
   color: var(--accent-color);
 }
 
@@ -534,26 +533,144 @@ input {
 
 @keyframes rotating-text {
   0% {
-    /* transform: rotate(0deg) scale(1.1); */
-    transform: rotate(0deg);
+    transform: rotate(0deg) scale(1.1);
   }
   100% {
-    /* transform: rotate(360deg) scale(1.1); */
-    transform: rotate(360deg);
+    transform: rotate(360deg) scale(1.1);
   }
 }
 
 /* TODO: try to see if nesting works in css native */
 
 /* Media Queries */
+
 /* Mobile Screen Sizes & Viewports */
 @media (max-width: 480px) {
   .hide-on-mobile {
     display: none;
   }
+  /* Hero */
+  .img__container {
+    margin-top: 3rem;
+    clip-path: path("M 0 100 L 0,50 A 7,8 0,0,1 250,400 L 0 380 z");
+  }
+  .img__container:hover {
+    clip-path: path("M 0 100 L 0,50 A 7,8 0,0,1 250,400 L 0 380 z");
+  }
+  .hero__img {
+    width: 250px;
+    filter: none;
+  }
+  .headline {
+    font-size: 5rem;
+    font-weight: 700;
+  }
+  .headline--first {
+    top: 53%;
+    left: 2%;
+  }
+  .headline--second {
+    top: 60%;
+    right: 1%;
+  }
+
+  /* Menu */
+  .menu__button {
+    top: 1rem;
+    left: 1rem;
+  }
+  .menu__button:hover {
+    background-color: var(--bg-primary);
+  }
+  .menu__container {
+    clip-path: circle(2rem at 3.5rem 3.5rem);
+  }
+  .menu__list {
+    justify-content: space-evenly;
+    margin: 0;
+  }
+  .menu__item {
+    margin-left: 6rem;
+  }
+  .menu__item:nth-child(2n + 1) {
+    margin-left: 12rem;
+  }
+  .menu__link {
+    font-size: 4rem;
+    letter-spacing: 0.1rem;
+  }
+  .social__links {
+    width: 100%;
+  }
+
+  /* Body Content */
+  .body__container {
+    padding-left: 2rem;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas:
+      "quote"
+      "title"
+      "info"
+      "gall";
+  }
+  .quote {
+    margin: 0;
+    max-width: 17ch;
+    margin-top: 3rem;
+    font-size: 3rem;
+  }
+  .sub__headline {
+    margin-top: 12rem;
+  }
+  .sub__headline::before {
+    width: 7rem;
+  }
+  .info {
+    padding: 0;
+    margin-top: 5rem;
+  }
+  .gall__container {
+    margin-top: 10rem;
+  }
+  .fig__container {
+    height: 350px;
+    width: 200px;
+  }
+  .fig__container:not(:last-of-type) {
+    margin-bottom: 10rem;
+  }
+  .gall__caption {
+    top: -50%;
+    left: 0;
+  }
+  .footer__container {
+    gap: 0;
+    padding-left: 2rem;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "contact"
+      "input"
+      "credits";
+  }
+  .form__container {
+    margin-top: -3rem;
+  }
+  .contact__container {
+    grid-row: auto;
+  }
+  .input__container {
+    width: auto;
+  }
+  .credits {
+    margin: 0;
+    padding-bottom: 1rem;
+  }
 }
-@media (max-width: 768px) {
-}
-/*  */
-@media (max-width: 1199px) {
-}
+
+/* Tablets */
+/* @media (max-width: 768px) {
+} */
+/* Larger Tablets */
+/* @media (max-width: 1199px) {
+} */
