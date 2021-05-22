@@ -430,7 +430,7 @@ a::selection {
   grid-template-areas:
     "contact spinning  ..."
     "input spinning ..."
-    "... copyright copyright";
+    "... credits credits";
   gap: 1rem;
 }
 .spinning__container {
@@ -515,11 +515,32 @@ input {
   align-self: end;
   margin-left: auto;
   padding-bottom: 2rem;
+  font-weight: 600;
+  letter-spacing: 0.05rem;
 }
 .credits__link {
   font-size: inherit;
   text-decoration: none;
   color: inherit;
+  position: relative;
+}
+.credits__link::before,
+.credits__link::after {
+  content: "";
+  position: absolute;
+  background-color: var(--accent-color);
+  left: 50%;
+  bottom: -0.5rem;
+  height: 0.3rem;
+}
+.credits__link::before {
+  width: 100%;
+  transform-origin: center;
+  transform: translateX(-50%) scaleX(0.4);
+  transition: transform var(--duration-short) var(--timing-in);
+}
+.credits__link:hover::before {
+  transform: translateX(-50%) scaleX(1);
 }
 .credits__link:hover {
   color: var(--accent-color);
