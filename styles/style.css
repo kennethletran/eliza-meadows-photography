@@ -9,7 +9,8 @@
   --text-color: hsl(0, 0%, 9%);
   --bg-primary: hsl(30, 63%, 90%);
   --bg-black: hsl(0, 0%, 0%);
-  --bg-black-transparent: hsla(0, 0%, 0%, 0.2);
+  --bg-gray-input: hsla(0, 0%, 0%, 0.5);
+  --bg-gray-border: hsla(0, 0%, 0%, 0.2);
   --bg-white: hsl(0, 0%, 100%);
   --accent-color: hsl(202, 83%, 82%);
   --accent-color-transparent: hsla(202, 83%, 82%, 0.3);
@@ -464,11 +465,13 @@ input {
   line-height: 2;
   padding: 0;
 }
+input::placeholder {
+  color: var(--bg-gray-input);
+}
 .input__container input {
   font-size: 3rem;
   cursor: none;
   font-family: inherit;
-  color: var(--bg-black-transparent);
   background: var(--bg-primary);
   appearance: none;
   border: none;
@@ -488,7 +491,7 @@ input {
   left: 0;
   height: 0.3rem;
   width: 100%;
-  background: var(--bg-black-transparent);
+  background: var(--bg-gray-border);
 }
 .input__border,
 .input__border::after {
@@ -557,8 +560,6 @@ input {
     transform: rotate(360deg) scale(1.1);
   }
 }
-
-/* TODO: try to see if nesting works in css native */
 
 /* Media Queries */
 
@@ -716,11 +717,11 @@ input {
   }
   .headline--first {
     top: 53%;
-    left: 4%;
+    left: 6%;
   }
   .headline--second {
     top: 60%;
-    right: 1%;
+    right: 13%;
   }
 
   /* Menu */
