@@ -841,11 +841,11 @@ input::placeholder {
   }
   .headline--first {
     top: 53%;
-    left: 8%;
+    left: 3%;
   }
   .headline--second {
     top: 60%;
-    right: 14%;
+    right: 2%;
   }
 
   /* Menu */
@@ -916,7 +916,7 @@ input::placeholder {
   }
   .gall__caption {
     top: -50%;
-    left: 0;
+    left: -25%;
   }
   .footer__container {
     gap: 0;
